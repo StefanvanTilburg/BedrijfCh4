@@ -22,7 +22,7 @@ public class Persoon {
     }
 
     public Persoon(String naam) {
-        this.naam = naam;
+        this(naam, "Onbekend", 0);
     }
 
     public Persoon() {
@@ -30,7 +30,7 @@ public class Persoon {
     }
 
     public double berekenJaarInkomen() {
-        return 0.0;
+        return 12 * maandSalaris;
     }
 
 }

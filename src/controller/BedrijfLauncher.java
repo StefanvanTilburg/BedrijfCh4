@@ -22,9 +22,12 @@ public class BedrijfLauncher {
         Persoon assistent = new Persoon ("Klaas");
         Persoon manager = new Persoon();
         System.out.println(Persoon.aantalPersonen);
-        System.out.printf("%s verdient %.2f per jaar\n", baas.getNaam(),
-                baas.berekenJaarInkomen());
-        System.out.printf("%s woont in %s\n", assistent.getNaam(),
-                assistent.getWoonplaats());
+
+        String bonusRechtTekst = (baas.heeftRechtOpBonus()) ? "wel" : "geen";
+        System.out.printf("%s verdient %.2f en heeft %s recht op een bonus.\n",
+                            baas.getNaam(), baas.getMaandSalaris(), bonusRechtTekst);
+        bonusRechtTekst = (medewerker.heeftRechtOpBonus()) ? "wel" : "geen";
+        System.out.printf("%s verdient %.2f en heeft %s recht op een bonus.\n",
+                medewerker.getNaam(), medewerker.getMaandSalaris(), bonusRechtTekst);
     }
 }

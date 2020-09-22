@@ -6,9 +6,9 @@ import model.Persoon;
 /**
  * @author Stefan van Tilburg
  * <p>
- * Opdracht
+ * Opdracht Bedrijf (Rode draad document)
  * <p>
- * Doel
+ * Doel     Toepassen van OOP programmeer principes, waarbij een Bedrijf centraal staat.
  */
 public class BedrijfLauncher {
     public static void main(String[] args) {

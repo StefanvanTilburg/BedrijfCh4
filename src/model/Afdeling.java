@@ -3,9 +3,9 @@ package model;
 /**
  * @author Stefan van Tilburg
  * <p>
- * Opdracht
+ * Opdracht Bedrijf (Rode draad document)
  * <p>
- * Doel
+ * Doel     Sla informatie op over de afdeling van ons bedrijf
  */
 public class Afdeling {
     private String afdelingsNaam;

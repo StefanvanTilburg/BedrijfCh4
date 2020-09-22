@@ -3,9 +3,9 @@ package model;
 /**
  * @author Stefan van Tilburg
  * <p>
- * Opdracht
+ * Opdracht Bedrijf (Rode draad document)
  * <p>
- * Doel
+ * Doel     Sla informatie op over een persoon in ons bedrijf
  */
 public class Persoon {
     private static final double GRENSWAARDE_BONUS = 4500.00;

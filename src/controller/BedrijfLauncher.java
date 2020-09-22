@@ -32,8 +32,8 @@ public class BedrijfLauncher {
         System.out.println(medewerker.toString());
         System.out.println(assistent.toString());
 
-        System.out.printf("%s verdien %f per jaar", baas.getNaam(), baas.berekenJaarinkomen());
-        System.out.printf("%s verdien %f per jaar", medewerker.getNaam(), medewerker.berekenJaarinkomen());
-        System.out.printf("%s verdien %f per jaar", assistent.getNaam(), assistent.berekenJaarinkomen());
+        System.out.printf("%s verdient %.2f per jaar\n", baas.getNaam(), baas.berekenJaarInkomen());
+        System.out.printf("%s verdient %.2f per jaar\n", medewerker.getNaam(), medewerker.berekenJaarInkomen());
+        System.out.printf("%s verdient %.2f per jaar\n", assistent.getNaam(), assistent.berekenJaarInkomen());
     }
 }

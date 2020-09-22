@@ -20,6 +20,10 @@ public class Afdeling {
         this("Onbekend", "Onbekend");
     }
 
+    public String toString() {
+        return "afdeling " + this.getAfdelingsNaam() + " te " + this.getAfdelingsPlaats();
+    }
+
     public String getAfdelingsNaam() {
         return afdelingsNaam;
     }

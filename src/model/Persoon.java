@@ -8,36 +8,37 @@ package model;
  * Doel     Sla informatie op over een persoon in ons bedrijf
  */
 public class Persoon {
-    private static final double GRENSWAARDE_BONUS = 4500.00;
-    public static int aantalPersonen = 0;
-    private int personeelsNummer;
-    private String naam;
-    private String woonplaats;
-    private double maandSalaris;
-    private Afdeling afdeling;
+    protected static final String DEFAULTWAARDE_NAAM = "Onbekend";
 
-    public Persoon(String naam, String woonplaats, double maandSalaris, Afdeling afdeling) {
+    public static int aantalPersonen = 0;
+
+    protected int personeelsNummer;
+    protected String naam;
+    protected String woonplaats;
+    protected Afdeling afdeling;
+
+    public Persoon(String naam, String woonplaats, Afdeling afdeling) {
         this.setNaam(naam);
         this.setWoonplaats(woonplaats);
-        this.setMaandSalaris(maandSalaris);
         this.setPersoneelsNummer(++aantalPersonen);
         this.setAfdeling(afdeling);
     }
 
     public Persoon(String naam) {
-        this(naam, "Onbekend", 0, new Afdeling());
+        this(naam, DEFAULTWAARDE_NAAM, new Afdeling());
     }
 
     public Persoon() {
-        this("DefaultName");
+        this(DEFAULTWAARDE_NAAM);
     }
 
     public double berekenJaarInkomen() {
-        return 12 * getMaandSalaris();
+        return 0;
     }
 
-    public boolean heeftRechtOpBonus() {
-        return this.maandSalaris >= GRENSWAARDE_BONUS;
+    @Override
+    public String toString() {
+        return String.format("%s woont in %s en werkt op %s", getNaam(), getWoonplaats(), getAfdeling().toString());
     }
 
     public int getPersoneelsNummer() {
@@ -62,14 +63,6 @@ public class Persoon {
 
     public void setWoonplaats(String woonplaats) {
         this.woonplaats = woonplaats;
-    }
-
-    public double getMaandSalaris() {
-        return maandSalaris;
-    }
-
-    public void setMaandSalaris(double maandSalaris) {
-        this.maandSalaris = maandSalaris;
     }
 
     public Afdeling getAfdeling() {

@@ -8,22 +8,24 @@ package model;
  * Doel
  */
 public class Persoon {
-    private final double GRENSWAARDE_BONUS = 4500.00;
+    private static final double GRENSWAARDE_BONUS = 4500.00;
     public static int aantalPersonen = 0;
     private int personeelsNummer;
     private String naam;
     private String woonplaats;
     private double maandSalaris;
+    private Afdeling afdeling;
 
-    public Persoon(String naam, String woonplaats, double maandSalaris) {
+    public Persoon(String naam, String woonplaats, double maandSalaris, Afdeling afdeling) {
         this.setNaam(naam);
         this.setWoonplaats(woonplaats);
         this.setMaandSalaris(maandSalaris);
         this.setPersoneelsNummer(++aantalPersonen);
+        this.setAfdeling(afdeling);
     }
 
     public Persoon(String naam) {
-        this(naam, "Onbekend", 0);
+        this(naam, "Onbekend", 0, new Afdeling());
     }
 
     public Persoon() {
@@ -68,5 +70,13 @@ public class Persoon {
 
     public void setMaandSalaris(double maandSalaris) {
         this.maandSalaris = maandSalaris;
+    }
+
+    public Afdeling getAfdeling() {
+        return afdeling;
+    }
+
+    public void setAfdeling(Afdeling afdeling) {
+        this.afdeling = afdeling;
     }
 }

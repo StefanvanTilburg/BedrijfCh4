@@ -31,7 +31,7 @@ public class Werknemer extends Persoon {
 
     @Override
     public double berekenJaarInkomen() {
-        return (heeftRechtOpBonus()) ? 12 * getMaandSalaris() : 12 * getMaandSalaris() + getMaandSalaris();
+        return (heeftRechtOpBonus()) ? 12 * getMaandSalaris() + getMaandSalaris() : 12 * getMaandSalaris();
     }
 
     @Override

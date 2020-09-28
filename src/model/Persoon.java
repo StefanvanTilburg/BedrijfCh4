@@ -7,7 +7,7 @@ package model;
  * <p>
  * Doel     Sla informatie op over een persoon in ons bedrijf
  */
-public class Persoon {
+public abstract class Persoon {
     protected static final String DEFAULTWAARDE_NAAM = "Onbekend";
 
     public static int aantalPersonen = 0;
@@ -32,9 +32,7 @@ public class Persoon {
         this(DEFAULTWAARDE_NAAM);
     }
 
-    public double berekenJaarInkomen() {
-        return 0;
-    }
+    public abstract double berekenJaarInkomen();
 
     @Override
     public String toString() {

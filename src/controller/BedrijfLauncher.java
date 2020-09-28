@@ -24,16 +24,23 @@ public class BedrijfLauncher {
         Werknemer baas = new Werknemer("Mark","Den Haag", afdelingen[2], 10000);
         Werknemer medewerker = new Werknemer("Caroline", "Delft", afdelingen[1],4000);
         Zzper assistent = new Zzper("Klaas", "Diemen", afdelingen[3], 50.00);
+        Zzper projectleider = new Zzper("Ronald", "Zaandam", afdelingen[0], 80.00);
 
         assistent.huurIn(160);
+        projectleider.huurIn(320);
 
-        System.out.printf("Het aantal personen in het bedrijf is %d\n", Persoon.aantalPersonen);
-        System.out.println(baas.toString());
-        System.out.println(medewerker.toString());
-        System.out.println(assistent.toString());
+        Persoon[] personen = new Persoon[4];
+        personen[0] = baas;
+        personen[1] = medewerker;
+        personen[2] = assistent;
+        personen[3] = projectleider;
 
-        System.out.printf("%s verdient %.2f per jaar\n", baas.getNaam(), baas.berekenJaarInkomen());
-        System.out.printf("%s verdient %.2f per jaar\n", medewerker.getNaam(), medewerker.berekenJaarInkomen());
-        System.out.printf("%s verdient %.2f per jaar\n", assistent.getNaam(), assistent.berekenJaarInkomen());
+        for (Persoon persoon : personen) {
+            toonJaarInkomen(persoon);
+        }
+    }
+
+    public static void toonJaarInkomen(Persoon persoon) {
+        System.out.printf("%s verdient %.2f per jaar.\n", persoon.getNaam(), persoon.berekenJaarInkomen());
     }
 }

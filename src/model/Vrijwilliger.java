@@ -5,7 +5,7 @@ package model;
  * <p>
  * Opdracht
  * <p>
- * Doel
+ * Doel     Class om gegevens van Vrijwilliger, dat subclass van Persoon is, in op te slaan.
  */
 public class Vrijwilliger extends Persoon implements Oproepbaar {
     private int urenGewerkt;

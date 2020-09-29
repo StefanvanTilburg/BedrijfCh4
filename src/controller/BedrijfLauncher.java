@@ -51,6 +51,7 @@ public class BedrijfLauncher {
                 System.out.println("Je invoer is op de juiste wijze afgehandeld.");
             }
         }
+        keyboard.close();
     }
 
     public static void toonJaarInkomen(Persoon persoon) {

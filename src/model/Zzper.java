@@ -5,7 +5,7 @@ package model;
  * <p>
  * Opdracht
  * <p>
- * Doel     Class om gegevens van werknemer, dat subclass van Persoon is, in op te slaan.
+ * Doel     Class om gegevens van Zzper, dat subclass van Persoon is, in op te slaan.
  */
 public class Zzper extends Persoon implements Oproepbaar {
     private double uurtarief;

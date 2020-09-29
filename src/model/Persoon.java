@@ -7,7 +7,7 @@ package model;
  * <p>
  * Doel     Sla informatie op over een persoon in ons bedrijf
  */
-public abstract class Persoon {
+public abstract class Persoon implements Comparable<Persoon> {
     protected static final String DEFAULTWAARDE_NAAM = "Onbekend";
 
     public static int aantalPersonen = 0;
@@ -37,6 +37,11 @@ public abstract class Persoon {
     @Override
     public String toString() {
         return String.format("%s woont in %s en werkt op %s", getNaam(), getWoonplaats(), getAfdeling().toString());
+    }
+
+    @Override
+    public int compareTo(Persoon anderPersoon) {
+        return this.getNaam().compareTo(anderPersoon.getNaam());
     }
 
     public int getPersoneelsNummer() {

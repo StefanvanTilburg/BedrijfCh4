@@ -7,7 +7,7 @@ package model;
  * <p>
  * Doel     Class om gegevens van werknemer, dat subclass van Persoon is, in op te slaan.
  */
-public class Zzper extends Persoon {
+public class Zzper extends Persoon implements Oproepbaar {
     private double uurtarief;
     private int urenGewerkt;
 
@@ -17,6 +17,7 @@ public class Zzper extends Persoon {
         this.setUrenGewerkt(0);
     }
 
+    @Override
     public void huurIn(int uren) {
         setUrenGewerkt(getUrenGewerkt() + uren);
     }

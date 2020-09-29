@@ -45,7 +45,10 @@ public class Werknemer extends Persoon {
         return maandSalaris;
     }
 
-    public void setMaandSalaris(double maandSalaris) {
+    public void setMaandSalaris(double maandSalaris) throws IllegalArgumentException {
+        if (maandSalaris <= 0) {
+            throw new IllegalArgumentException("Het maandsalaris mag niet negatief zijn.");
+        }
         this.maandSalaris = maandSalaris;
     }
 }

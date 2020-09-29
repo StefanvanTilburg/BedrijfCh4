@@ -2,8 +2,7 @@ package controller;
 
 import model.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Scanner;
 
 /**
  * @author Stefan van Tilburg
@@ -14,38 +13,43 @@ import java.util.Collections;
  */
 public class BedrijfLauncher {
     public static void main(String[] args) {
+        String naamMedewerker;
+        String plaatsMedewerker;
+        String naamAfdeling;
+        String plaatsAfdeling;
+        double maandSalaris;
 
-        Afdeling[] afdelingen = new Afdeling[4];            // elementen zijn null
-        afdelingen[0] = new Afdeling("Uitvoering","Hilversum");
-        afdelingen[1] = new Afdeling("Support","Amsterdam");
-        afdelingen[2] = new Afdeling("Management","Almere");
-        afdelingen[3] = new Afdeling("Documentatie","Gouda");
+        Scanner keyboard = new Scanner(System.in);
 
-        ArrayList<Persoon> personen = new ArrayList<>();
-        personen.add(new Werknemer("Mark", "Den Haag", afdelingen[2], 10000));
-        personen.add(new Werknemer("Angelique", "Rotterdam", afdelingen[2],
-                5000));
-        personen.add(new Werknemer("Caroline", "Delft", afdelingen[1], 4000));
-        personen.add(new Zzper("Klaas", "Diemen", afdelingen[3], 50.00));
-        personen.add(new Zzper("Ronald", "Zaandam", afdelingen[0], 80.00));
-        personen.add(new Zzper("Jannie", "Utrecht", afdelingen[0], 60.00));
-        personen.add(new Zzper("Anne", "Zwolle", afdelingen[0], 40.00));
-        personen.add(new Vrijwilliger("Ambi", "Amsterdam", afdelingen[0]));
-        personen.add(new Vrijwilliger("Naledi", "Gaborone", afdelingen[1]));
-        personen.add(new Vrijwilliger("Ceren", "Istanboel", afdelingen[2]));
-        personen.add(new Vrijwilliger("Haining", "Shaoxing", afdelingen[3]));
+        System.out.print("Geef de naam: ");
+        naamMedewerker = keyboard.next();
 
-        Collections.sort(personen);
+        System.out.print("Geef de woonplaats: ");
+        plaatsMedewerker = keyboard.next();
 
-        for (Persoon persoon : personen) {
-            if (persoon instanceof Zzper) {
-                ((Zzper) persoon).huurIn(320);
+        System.out.print("Geef de naam van de afdeling: ");
+        naamAfdeling = keyboard.next();
+
+        System.out.print("Geef de plaats van de afdeling: ");
+        plaatsAfdeling = keyboard.next();
+
+        boolean invoerIsFout = true;
+        while (invoerIsFout){
+            try {
+                System.out.print("Geef het maandsalaris: ");
+                maandSalaris = keyboard.nextDouble();
+
+                Werknemer werknemer = new Werknemer(naamMedewerker, plaatsMedewerker,
+                                    new Afdeling(naamAfdeling, plaatsAfdeling), maandSalaris);
+
+                System.out.println(werknemer.toString());
+
+                invoerIsFout = false;
+            } catch (IllegalArgumentException foutMelding) {
+                System.out.println(foutMelding.getMessage());
+            } finally {
+                System.out.println("Je invoer is op de juiste wijze afgehandeld.");
             }
-            if (persoon instanceof Vrijwilliger) {
-                ((Vrijwilliger) persoon).huurIn(160);
-            }
-            System.out.println(persoon);
-            toonJaarInkomen(persoon);
         }
     }
 

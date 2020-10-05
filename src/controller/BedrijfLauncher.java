@@ -2,15 +2,11 @@ package controller;
 
 import database.AfdelingDAO;
 import database.DBaccess;
+import database.MedewerkerDAO;
 import model.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
 
 /**
  * @author Stefan van Tilburg
@@ -31,6 +27,12 @@ public class BedrijfLauncher {
         for (Afdeling afdeling : getHilversumAfdelingen) {
             System.out.println(afdeling);
         }
+
+        // TODO resetting auto_increment? Misschien niet nodig, maar kan het (vast)
+        // TODO Is de doorlus van MedewerkerDOA naar PersoonDOA acceptabel?
+        MedewerkerDAO medewerkerDAO = new MedewerkerDAO(dBaccess);
+        medewerkerDAO.slaMedewerkerOp(new Werknemer("Lodewijk", "Zaandam",
+                new Afdeling("Support", "Amsterdam"), 2500));
 
         dBaccess.closeConnection();
     }
